@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Commerce Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>CodeAlpha Store</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login.html" id="auth-link">Login / Register</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h3>Products</h3>
+        <div id="product-list" class="products-grid"></div>
+
+        <div class="cart-section">
+            <h3>Shopping Cart</h3>
+            <ul id="cart-items"></ul>
+            <p><strong>Total: ₹<span id="cart-total">0</span></strong></p>
+            <button onclick="checkout()" style="background: #007bff; color: white; padding: 10px; border: none; cursor: pointer;">Checkout / Order</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
