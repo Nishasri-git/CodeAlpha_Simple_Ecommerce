@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout - CodeAlpha Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>CodeAlpha Store</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login / Register</a>
+        </nav>
+    </header>
+
+    <div class="container" style="max-width: 500px; margin: 30px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+        <h2>Checkout & Payment</h2>
+        <hr><br>
+        
+        <form id="checkout-form">
+            <label>Full Name:</label><br>
+            <input type="text" placeholder="Enter your full name" style="width: 100%; padding: 8px; margin: 8px 0;" required><br><br>
+
+            <label>Shipping Address:</label><br>
+            <textarea placeholder="Enter delivery address" style="width: 100%; padding: 8px; margin: 8px 0;" required></textarea><br><br>
+
+            <label>Payment Method:</label><br>
+            <select style="width: 100%; padding: 8px; margin: 8px 0;">
+                <option>Cash on Delivery (COD)</option>
+                <option>UPI / Credit / Debit Card</option>
+            </select><br><br>
+
+            <button type="submit" style="width: 100%; background: #28a745; color: white; padding: 10px; border: none; cursor: pointer; font-size: 16px;">
+                Place Order 🎉
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Order Placed Successfully! Thank you for shopping with CodeAlpha!');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

@@ -4,6 +4,39 @@
     <meta charset="UTF-8">
     <title>E-Commerce Store</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .products-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .product-card button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -14,18 +47,88 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container" style="padding: 20px;">
         <h3>Products</h3>
+        
+        <!-- Products Grid Area -->
         <div id="product-list" class="products-grid"></div>
+
+        <br><hr><br>
 
         <div class="cart-section">
             <h3>Shopping Cart</h3>
             <ul id="cart-items"></ul>
             <p><strong>Total: ₹<span id="cart-total">0</span></strong></p>
-            <button onclick="checkout()" style="background: #007bff; color: white; padding: 10px; border: none; cursor: pointer;">Checkout / Order</button>
+            
+            <a href="checkout.html">
+                <button style="background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                    Checkout / Order
+                </button>
+            </a>
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script>
+        // Sample Products Array with Image URLs
+        const products = [
+            { 
+                id: 1, 
+                name: "Wireless Headphones", 
+                price: 1999, 
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300" 
+            },
+            { 
+                id: 2, 
+                name: "Smart Watch", 
+                price: 2999, 
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300" 
+            },
+            { 
+                id: 3, 
+                name: "Gaming Mouse", 
+                price: 899, 
+                image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300" 
+            },
+            { 
+                id: 4, 
+                name: "Mechanical Keyboard", 
+                price: 3499, 
+                image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300" 
+            }
+        ];
+
+        let cartTotal = 0;
+
+        // Function to render products dynamically with Images
+        function displayProducts() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h4 style="margin: 10px 0 5px 0;">${product.name}</h4>
+                    <p style="margin: 0; color: #555;">Price: ₹${product.price}</p>
+                    <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                `;
+                productList.appendChild(card);
+            });
+        }
+
+        // Add to Cart Logic
+        function addToCart(name, price) {
+            const cartItems = document.getElementById('cart-items');
+            const li = document.createElement('li');
+            li.textContent = `${name} - ₹${price}`;
+            cartItems.appendChild(li);
+
+            cartTotal += price;
+            document.getElementById('cart-total').textContent = cartTotal;
+        }
+
+        window.onload = displayProducts;
+    </script>
 </body>
 </html>

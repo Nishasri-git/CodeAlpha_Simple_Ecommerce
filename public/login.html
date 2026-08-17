@@ -19,6 +19,46 @@
         <input type="password" id="reg-pass" placeholder="Password">
         <button onclick="register()" style="background: #28a745;">Register</button>
     </div>
-    <script src="app.js"></script>
+
+    <h2>Register</h2>
+        <input type="text" id="reg-user" placeholder="Username">
+        <input type="password" id="reg-pass" placeholder="Password">
+        <button onclick="register()" style="background: #28a745;">Register</button>
+    </div>
+
+    <!-- 👇 INGA PASTE PANNUNGA 👇 -->
+    <script>
+        function register() {
+            const username = document.getElementById('reg-user').value;
+            const password = document.getElementById('reg-pass').value;
+
+            if (!username || !password) {
+                alert("Username and Password type pannunga!");
+                return;
+            }
+
+            alert("Registration Successful! Redirecting...");
+
+            // Next page link (Unga home page file name podunga)
+            window.location.href = "index.html"; 
+        }
+
+        function login() {
+            const username = document.getElementById('login-user').value;
+            const password = document.getElementById('login-pass').value;
+
+            if (!username || !password) {
+                alert("Username and Password type pannunga!");
+                return;
+            }
+
+            alert("Login Successful! Redirecting...");
+
+            // Next page link
+            window.location.href = "index.html"; 
+        }
+    </script>
+</body>
+</html>
 </body>
 </html>
